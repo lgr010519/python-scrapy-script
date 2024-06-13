@@ -1,4 +1,5 @@
 import scrapy
+from selenium import webdriver
 
 
 class WangyiSpider(scrapy.Spider):
@@ -7,6 +8,9 @@ class WangyiSpider(scrapy.Spider):
     start_urls = ["https://news.163.com"]
 
     model_urls = []
+
+    # 实例化全局浏览器对象
+    driver = webdriver.Edge()
 
     def parse(self, response):
         li_list = response.xpath('//*[@id="index2016_wrap"]/div[3]/div[2]/div[2]/div[2]/div/ul/li')
@@ -21,4 +25,7 @@ class WangyiSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_model)
 
     def parse_model(self, response):
-        print(response)
+        pass
+
+    def closed(self, spider):
+        self.driver.quit()
