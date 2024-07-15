@@ -10,7 +10,8 @@ class ReadbookSpiderSpider(CrawlSpider):
     allowed_domains = ["www.dushu.com"]
     start_urls = ["https://www.dushu.com/book/1617_1.html"]
 
-    rules = (Rule(LinkExtractor(allow=r"/book/1617_\d+\.html"), callback="parse_item", follow=False),)
+    # /book/1617_\d+\.html
+    rules = (Rule(LinkExtractor(allow=r"/book/1617_1.html"), callback="parse_item", follow=False),)
 
     def parse_item(self, response):
         img_list = response.xpath('//div[@class="bookslist"]//img')

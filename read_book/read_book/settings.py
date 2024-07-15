@@ -62,9 +62,11 @@ NEWSPIDER_MODULE = "read_book.spiders"
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "read_book.pipelines.ReadBookPipeline": 300,
-    # "read_book.pipelines.MysqlPipeline": 301,
+    # "read_book.pipelines.ReadBookPipeline": 300,
+    "read_book.pipelines.MysqlPipeline": 301,
 }
+
+LOG_LEVEL = 'ERROR'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

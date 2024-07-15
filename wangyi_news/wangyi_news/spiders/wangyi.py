@@ -25,6 +25,7 @@ class WangyiSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_model)
 
     def parse_model(self, response):
+        # TODO
         pass
 
     def closed(self, spider):
